@@ -7,7 +7,7 @@ RSpec.configure do |config|
 end
 
 describe 'the Friday test :)' do
-  
+
   specify 'select_elements_starting_with_a' do
     n = select_elements_starting_with_a ['bananas', 'apples', 'pears', 'avocados']
     expect(n).to eq ['apples', 'avocados']
@@ -33,7 +33,7 @@ describe 'the Friday test :)' do
     expect(n).to eq ['god', 'yeknom', 'tnahpele']
   end
 
-  specify 'every_possible_pairing_of_students' do
+  xit 'every_possible_pairing_of_students' do
     n = every_possible_pairing_of_students(['Bob', 'Dave', 'Clive']) || []
     sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
 
@@ -161,7 +161,7 @@ describe 'the Friday test :)' do
     expect(n).to eq 'makersacademy'
   end
 
-  specify 'titleize_a_string' do
+  fit 'titleize_a_string' do
     n = titleize_a_string 'the lion the witch and the wardrobe'
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
@@ -170,8 +170,8 @@ describe 'the Friday test :)' do
     a = check_a_string_for_special_characters 'ABCdef123'
     b = check_a_string_for_special_characters 'ABC@def123!'
 
-    expect(a).to be_false
-    expect(b).to be_true
+    expect(a).to be false
+    expect(b).to be true
   end
 
   specify 'get_upper_limit_of' do
@@ -218,6 +218,6 @@ describe 'the Friday test :)' do
 
   specify 'count_words_of_each_length_in_a_file' do
     n = count_words_of_each_length_in_a_file('lorem.txt') || []
-    expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
+    expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3})
   end
 end
