@@ -33,11 +33,11 @@ describe 'the Friday test :)' do
     expect(n).to eq ['god', 'yeknom', 'tnahpele']
   end
 
-  xit 'every_possible_pairing_of_students' do
+  fit 'every_possible_pairing_of_students' do
     n = every_possible_pairing_of_students(['Bob', 'Dave', 'Clive']) || []
-    sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
+    # sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
 
-    expect(sorted).to eq [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
+    expect(n).to eq [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
   end
 
   specify 'all_elements_except_first_3' do
@@ -161,7 +161,7 @@ describe 'the Friday test :)' do
     expect(n).to eq 'makersacademy'
   end
 
-  fit 'titleize_a_string' do
+  specify 'titleize_a_string' do
     n = titleize_a_string 'the lion the witch and the wardrobe'
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
@@ -183,8 +183,8 @@ describe 'the Friday test :)' do
     a = is_a_3_dot_range? 1..20
     b = is_a_3_dot_range? 1...20
 
-    expect(a).to be_false
-    expect(b).to be_true
+    expect(a).to be false
+    expect(b).to be true
   end
 
   specify 'square_root_of' do
@@ -207,8 +207,8 @@ describe 'the Friday test :)' do
     a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
     b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
-    expect(a).to be_true
-    expect(b).to be_false
+    expect(a).to be true
+    expect(b).to be false
   end
 
   specify 'your_birthday_is_on_a_friday_in_the_year' do

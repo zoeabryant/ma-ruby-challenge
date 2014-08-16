@@ -30,6 +30,9 @@ end
 # make sure you don't have the same pairing twice,
 def every_possible_pairing_of_students(array)
 	array.product(array)
+	# array.map.with_index do |name, index|
+	# 	[name] << array[index + 1]
+	# end
 end
 
 # discard the first 3 elements of an array,
@@ -186,8 +189,10 @@ end
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
 	sentance = string.capitalize!.split(' ')
+	words_not_to_capitalize = ['a', 'and', 'the']
+
 	sentance.each do |word|
-		word.capitalize! unless word[/and|the/]
+		word.capitalize! unless words_not_to_capitalize.include?(word)
 	end.join(' ')
 end
 
@@ -207,14 +212,25 @@ end
 # should return true for a 3 dot range like 1...20, false for a
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+	range.exclude_end?
 end
 
 # get the square root of a number
 def square_root_of(number)
+	Math.sqrt(number.to_f)
 end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+	words = 0
+	File.open(file_path, 'r') do |file|
+		file.readlines.each do |line|
+			words = line.split.length
+		end
+	end
+	words
+	# Depended on file being one line! not good!
+	# file.readlines.first.split.length
 end
 
 # --- tougher ones ---
@@ -223,12 +239,26 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
+	str_methods.call
 end
 
 # return true if the date is a uk bank holiday for 2014
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
+require 'json'
+
 def is_a_2014_bank_holiday?(date)
+	holiday_file = File.read('bank-holidays.json')
+	holiday_list = JSON.parse(holiday_file)
+	holiday_days = []
+
+	holiday_list['england-and-wales']['events'].each do |day|
+		holiday_days << day['date']
+	end
+
+	date = date.strftime('%Y-%m-%d').to_s
+
+	holiday_days.include?(date)
 end
 
 # given your birthday this year, this method tells you
