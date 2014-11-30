@@ -1,6 +1,12 @@
 ## Ruby Challenge
 Challenge tackled on Week 8 of the course.
 
+Makers Academy provided questions_spec.rb with tests we are required to pass.
+
+questions.rb contains my solutions.
+
+Extra files are for use in my solutions.
+
 ## RSpec!
 
 To run the specs, just run
